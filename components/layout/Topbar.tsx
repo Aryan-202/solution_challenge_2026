@@ -39,7 +39,7 @@ export function Topbar({ onMenuClick }: { onMenuClick?: () => void }) {
         </Button>
         <Avatar className="h-8 w-8 cursor-pointer border border-slate-200 dark:border-slate-700">
           <AvatarFallback className="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200 text-xs">
-            {user?.displayName?.[0] || 'U'}
+            {user?.name?.[0] || 'U'}
           </AvatarFallback>
         </Avatar>
       </div>

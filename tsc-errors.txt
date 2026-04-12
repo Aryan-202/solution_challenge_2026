@@ -1,0 +1,3 @@
+﻿components/layout/Sidebar.tsx(53,22): error TS2339: Property 'displayName' does not exist on type '{ name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; }'.
+components/layout/Sidebar.tsx(57,75): error TS2339: Property 'displayName' does not exist on type '{ name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; }'.
+components/layout/Topbar.tsx(42,20): error TS2339: Property 'displayName' does not exist on type '{ name?: string | null | undefined; email?: string | null | undefined; image?: string | null | undefined; }'.

@@ -50,11 +50,11 @@ export function Sidebar({ className }: { className?: string }) {
         <div className="flex items-center gap-3 mb-4">
           <Avatar className="h-10 w-10">
             <AvatarFallback className="bg-blue-900 text-blue-200">
-              {user?.displayName?.[0] || 'U'}
+              {user?.name?.[0] || 'U'}
             </AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-white truncate">{user?.displayName || 'User'}</p>
+            <p className="text-sm font-medium text-white truncate">{user?.name || 'User'}</p>
             <p className="text-xs text-slate-500 truncate">{user?.email}</p>
           </div>
         </div>
