@@ -9,10 +9,9 @@ import { toast } from 'sonner';
 export default function LoginPage() {
   const { signIn, loading } = useAuth();
 
-  const handleDemoSignIn = (e: React.FormEvent) => {
+  const handleGoogleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success('Signed in successfully');
-    signIn();
+    await signIn("google");
   };
 
   if (loading) {
@@ -32,7 +31,7 @@ export default function LoginPage() {
         <Button 
           variant="outline" 
           className="w-full bg-transparent border-slate-700 text-white hover:bg-slate-800"
-          onClick={handleDemoSignIn}
+          onClick={handleGoogleSignIn}
         >
           <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -49,7 +48,7 @@ export default function LoginPage() {
           <div className="flex-grow border-t border-slate-800"></div>
         </div>
 
-        <form onSubmit={handleDemoSignIn} className="space-y-4">
+        <form onSubmit={handleGoogleSignIn} className="space-y-4">
           <div>
             <Input 
               type="email" 
@@ -72,7 +71,7 @@ export default function LoginPage() {
         </form>
 
         <div className="mt-6 text-center">
-          <a href="#" className="text-sm text-blue-500 hover:text-blue-400" onClick={handleDemoSignIn}>
+          <a href="#" className="text-sm text-blue-500 hover:text-blue-400" onClick={handleGoogleSignIn}>
             Create account
           </a>
         </div>

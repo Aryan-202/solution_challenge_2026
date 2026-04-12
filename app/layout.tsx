@@ -16,6 +16,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import AuthProvider from "@/components/providers/AuthProvider";
+
 export const metadata: Metadata = {
   title: "Sportshield",
   description: "Protect your sports media",
@@ -32,8 +34,10 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
       <body className="min-h-full flex flex-col bg-slate-950 text-slate-50">
-        {children}
-        <Toaster theme="dark" />
+        <AuthProvider>
+          {children}
+          <Toaster theme="dark" />
+        </AuthProvider>
       </body>
     </html>
   );
