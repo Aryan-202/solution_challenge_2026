@@ -107,8 +107,21 @@ export function AssetGrid() {
                     <ImageIcon size={48} className="text-slate-300 dark:text-slate-700 group-hover:scale-110 group-hover:text-blue-500 transition-all" />
                   </div>
                 )}
-                <div className="absolute top-2 right-2">
+                <div className="absolute top-2 right-2 flex flex-col gap-2 items-end">
                   {getStatusBadge(asset.status)}
+                  {asset.storageUrl && (
+                    <a 
+                      href={asset.storageUrl} 
+                      download 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-black/50 hover:bg-black/70 text-white p-1.5 rounded-full backdrop-blur-sm transition-all"
+                      title="Download Asset"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    </a>
+                  )}
                 </div>
               </div>
               <div className="p-4 flex flex-col flex-1">

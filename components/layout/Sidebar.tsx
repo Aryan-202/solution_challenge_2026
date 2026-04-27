@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Upload, Archive, Globe, LogOut, Menu } from 'lucide-react';
+import { LayoutDashboard, Upload, Archive, Globe, LogOut, Search } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -11,6 +11,7 @@ const navItems = [
   { href: '/upload', label: 'Upload Media', icon: Upload },
   { href: '/library', label: 'Asset Library', icon: Archive },
   { href: '/map', label: 'Spread Map', icon: Globe },
+  { href: '/checker', label: 'URL Checker', icon: Search },
 ];
 
 export function Sidebar({ className }: { className?: string }) {

@@ -31,25 +31,17 @@ export default function UploadPage() {
       setStep(2);
       await new Promise(r => setTimeout(r, 2000));
       
-      // Prepare asset metadata
-      const assetData = {
-        orgId: 'mock_org',
-        name: file.name,
-        mediaType: file.type.startsWith('image/') ? 'image' : 'video',
-        status: 'protected',
-        fingerprintHash: Array.from({length: 16}, () => Math.floor(Math.random()*16).toString(16)).join(''),
-        fileSize: file.size,
-      };
+      const formData = new FormData();
+      formData.append('file', file);
 
-      // Save to MongoDB via API route
-      const res = await fetch('/api/upload', {
+      // Save to MongoDB via Go API route
+      const res = await fetch('http://localhost:8080/api/upload', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(assetData)
+        body: formData
       });
 
       if (!res.ok) {
-        throw new Error('Failed to save to database');
+        throw new Error('Failed to upload and protect via Go backend');
       }
 
       const { asset } = await res.json();
@@ -57,7 +49,7 @@ export default function UploadPage() {
       // Add to local state using the returned database asset
       addAsset({
         ...asset,
-        id: asset._id || `asset_${Date.now()}` // Fallback if API response varies
+        id: asset.id || asset._id || `asset_${Date.now()}`
       });
       
       // Step 3: Done
